@@ -10,10 +10,10 @@ An in-silico closed-loop Model Predictive Control (MPC) compiler designed to pre
 - **Decision Latency:** Mean $7.20\text{ ms}$ (Real-time hard deadline: $10.0\text{ ms}$)
 
 ## Core Modules
-- `pnp_electrodynamics.py`: 3D Poisson-Nernst-Planck ionic flux solver
-- `dpl_bioheat.py`: Dual-Phase-Lag microvascular heat dissipation
-- `eaat_kinetics.py`: Sodium-dependent astrocytic glutamate reuptake
-- `mpc_governor.py`: Real-time phase-preserving channel throttling engine
+- 'sens_ana.py'- Thermal sensitivity parametric sweep across stimulation frequency (10–100 Hz) and microvascular perfusion rates (50%–130% physiological baseline)
+- 'mont_carlo.py'- Monte Carlo execution latency profile of the Corterix-X1 ROM MPC governor (N = 10,000 cycles).
+- 'main.py'- 3.	Multi-physics closed-loop validation of the Corterix-X1 Brain-Machine Compiler across 2.0-second stimulation sequences
+
 
 ## Quickstart
 ```bash
