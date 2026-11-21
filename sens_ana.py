@@ -31,9 +31,13 @@ textstr_a = 'Threat Boundary:\n+0.38 °C Activation'
 ax1.text(0.04, 0.82, textstr_a, transform=ax1.transAxes, fontsize=9, bbox=dict(boxstyle='round,pad=0.4', facecolor='white', alpha=0.9))
 
 # Panel B
+# In Panel B:
 c2 = ax2.pcolormesh(FREQ_GRID, W_GRID * 100, delta_T_governed, cmap='YlOrRd', vmin=0.0, vmax=0.45, shading='auto')
-fig.colorbar(c2, ax=ax2, label='Governed Thermal Rise ΔT (°C)')
+cb2 = fig.colorbar(c2, ax=ax2, label='Governed Thermal Rise ΔT (°C)', pad=0.03)
 
+# Single clean line marking the exact governor boundary:
+cs2 = ax2.contour(FREQ_GRID, W_GRID * 100, delta_T_ungoverned, levels=[0.38], colors='black', linewidths=2.0)
+ax2.clabel(cs2, inline=True, fmt='Governor Clamped (+0.38 °C)', fontsize=8.5)
 ax2.set_title('B: Corterix-X1 Governed Thermal Safety Boundary', fontsize=11, fontweight='bold')
 ax2.set_xlabel('Stimulation Frequency (Hz)', fontsize=10)
 ax2.set_ylabel('Vascular Blood Perfusion Rate (% Baseline)', fontsize=10)
